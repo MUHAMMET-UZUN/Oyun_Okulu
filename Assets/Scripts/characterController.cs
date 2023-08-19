@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class characterController : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 5f;
+    public float moveSpeed = 5f;
 
     private Vector2 touchStartPos;
     private float minSwipeDistance = 50f;
@@ -30,43 +30,43 @@ public class characterController : MonoBehaviour
 
     void touchCheck()
     {
-        if (Input.touchCount > 0) // Detect touch input
+        if (Input.touchCount > 0) 
         {
-            Touch touch = Input.GetTouch(0); // Get the first touch
+            Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began) // Detect touch start
+            if (touch.phase == TouchPhase.Began) 
             {
-                touchStartPos = touch.position; // Store the starting position of the touch
+                touchStartPos = touch.position; 
             }
 
-            if (touch.phase == TouchPhase.Ended) // Detect touch end
+            if (touch.phase == TouchPhase.Ended) 
             {
-                Vector2 touchEndPos = touch.position; // Store the ending position of the touch
+                Vector2 touchEndPos = touch.position; 
 
-                // Calculate the distance between start and end positions
+               
                 float swipeDistance = Vector2.Distance(touchStartPos, touchEndPos);
 
-                // Check if the swipe distance is greater than the minimum required distance
+               
                 if (swipeDistance > minSwipeDistance)
                 {
-                    // Determine the direction of the swipe
+                    
                     Vector2 swipeDirection = touchEndPos - touchStartPos;
 
-                    if (swipeDirection.x > 0) // Swiped to the right
+                    if (swipeDirection.x > 0) 
                     {
                         if (transform.position.x < 3)
                         {
-                            Debug.Log("Swiped to the right");
+                           
                             Vector3 newPosition = new Vector3(transform.position.x + 3f, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
                        
                     }
-                    else if (swipeDirection.x < 0) // Swiped to the left
+                    else if (swipeDirection.x < 0) 
                     {
                         if (transform.position.x > -3)
                         {
-                            Debug.Log("Swiped to the left");
+                            
                             Vector3 newPosition = new Vector3(transform.position.x - 3f, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
@@ -75,5 +75,19 @@ public class characterController : MonoBehaviour
             }
         }
     }
- 
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "targetLetter")
+        {
+            Debug.Log("Correct");
+        }
+        else
+        {
+            Debug.Log("Worse");
+        }
+    }
+
 }
