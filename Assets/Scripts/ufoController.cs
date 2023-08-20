@@ -15,7 +15,7 @@ public class ufoController : MonoBehaviour
     [SerializeField] bool isCreatable = true;
 
     [SerializeField] GameObject animUFo;
-
+    private float xOffset = 2.5f;
     public float zOffset = 0;
     private Animator anim;
     private float moveSpeed;
@@ -49,23 +49,23 @@ public class ufoController : MonoBehaviour
             int i = Random.RandomRange(1, 4);
             if (i == 1)
             {
-                instantiateLetter(letter1, -3);
+                instantiateLetter(letter1, -xOffset);
                 instantiateLetter(letter3, 0);
-                instantiateLetter(letter2, 3);
+                instantiateLetter(letter2, xOffset);
 
             }
             if (i == 2)
             {
                 instantiateLetter(letter1, 0);
-                instantiateLetter(letter3, -3);
-                instantiateLetter(letter2, 3);
+                instantiateLetter(letter3, -xOffset);
+                instantiateLetter(letter2, xOffset);
 
 
             }
             if (i == 3)
             {
-                instantiateLetter(letter1, 3);
-                instantiateLetter(letter3, -3);
+                instantiateLetter(letter1, xOffset);
+                instantiateLetter(letter3, -xOffset);
                 instantiateLetter(letter2, 0);
 
 

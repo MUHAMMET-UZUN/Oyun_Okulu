@@ -13,6 +13,7 @@ public class characterController : MonoBehaviour
 
     private Vector2 touchStartPos;
     private float minSwipeDistance = 50f;
+    private float xOffset = 2.5f;
     void Start()
     {
 
@@ -57,20 +58,20 @@ public class characterController : MonoBehaviour
 
                     if (swipeDirection.x > 0)
                     {
-                        if (transform.position.x < 3)
+                        if (transform.position.x < xOffset)
                         {
 
-                            Vector3 newPosition = new Vector3(transform.position.x + 3f, transform.position.y, transform.position.z);
+                            Vector3 newPosition = new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
 
                     }
                     else if (swipeDirection.x < 0)
                     {
-                        if (transform.position.x > -3)
+                        if (transform.position.x > -xOffset)
                         {
 
-                            Vector3 newPosition = new Vector3(transform.position.x - 3f, transform.position.y, transform.position.z);
+                            Vector3 newPosition = new Vector3(transform.position.x - xOffset, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
                     }
