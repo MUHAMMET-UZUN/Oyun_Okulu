@@ -15,7 +15,7 @@ public class characterController : MonoBehaviour
     private float minSwipeDistance = 50f;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,43 +33,43 @@ public class characterController : MonoBehaviour
 
     void touchCheck()
     {
-        if (Input.touchCount > 0) 
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began) 
+            if (touch.phase == TouchPhase.Began)
             {
-                touchStartPos = touch.position; 
+                touchStartPos = touch.position;
             }
 
-            if (touch.phase == TouchPhase.Ended) 
+            if (touch.phase == TouchPhase.Ended)
             {
-                Vector2 touchEndPos = touch.position; 
+                Vector2 touchEndPos = touch.position;
 
-               
+
                 float swipeDistance = Vector2.Distance(touchStartPos, touchEndPos);
 
-               
+
                 if (swipeDistance > minSwipeDistance)
                 {
-                    
+
                     Vector2 swipeDirection = touchEndPos - touchStartPos;
 
-                    if (swipeDirection.x > 0) 
+                    if (swipeDirection.x > 0)
                     {
                         if (transform.position.x < 3)
                         {
-                           
+
                             Vector3 newPosition = new Vector3(transform.position.x + 3f, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
-                       
+
                     }
-                    else if (swipeDirection.x < 0) 
+                    else if (swipeDirection.x < 0)
                     {
                         if (transform.position.x > -3)
                         {
-                            
+
                             Vector3 newPosition = new Vector3(transform.position.x - 3f, transform.position.y, transform.position.z);
                             transform.position = newPosition;
                         }
@@ -87,7 +87,7 @@ public class characterController : MonoBehaviour
         {
             Debug.Log("Correct");
             GameObject instantiatedLetter = Instantiate(collectEffect);
-            instantiatedLetter.transform.position =other.transform.position;
+            instantiatedLetter.transform.position = other.transform.position;
             Destroy(other.gameObject);
         }
         else

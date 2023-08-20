@@ -15,6 +15,8 @@ public class ufoController : MonoBehaviour
     [SerializeField] bool isCreatable = true;
 
     [SerializeField] GameObject animUFo;
+
+    public float zOffset = 0;
     private Animator anim;
     private float moveSpeed;
     void Start()
@@ -22,8 +24,8 @@ public class ufoController : MonoBehaviour
         anim = animUFo.GetComponent<Animator>();
 
         moveSpeed = characterController.moveSpeed;
-        InvokeRepeating("createLetter",0f,5f);
-        InvokeRepeating("stopInstantiate",10f,10f);
+        InvokeRepeating("createLetter", 0f, 5f);
+        InvokeRepeating("stopInstantiate", 10f, 10f);
         letter1.tag = "targetLetter";
     }
 
@@ -58,7 +60,7 @@ public class ufoController : MonoBehaviour
                 instantiateLetter(letter3, -3);
                 instantiateLetter(letter2, 3);
 
-              
+
             }
             if (i == 3)
             {
@@ -66,7 +68,7 @@ public class ufoController : MonoBehaviour
                 instantiateLetter(letter3, -3);
                 instantiateLetter(letter2, 0);
 
-              
+
             }
 
         }
@@ -76,19 +78,19 @@ public class ufoController : MonoBehaviour
 
     void stopInstantiate()
     {
-        int i = Random.RandomRange(0,2);
+        int i = Random.RandomRange(0, 2);
         if (i == 0)
         {
-            anim.SetBool("ArkayaDon",true);
+            anim.SetTrigger("ArkayaDon");
             isCreatable = false;
         }
     }
 
 
-    void instantiateLetter(GameObject letter , float x)
+    void instantiateLetter(GameObject letter, float x)
     {
         GameObject instantiatedLetter = Instantiate(letter);
-        instantiatedLetter.transform.position = new Vector3(x, letterPos.y, transform.position.z);
+        instantiatedLetter.transform.position = new Vector3(x, letterPos.y, transform.position.z + zOffset);
         Destroy(instantiatedLetter, 7f);
     }
 }
