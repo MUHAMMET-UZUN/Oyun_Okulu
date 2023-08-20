@@ -13,9 +13,14 @@ public class ufoController : MonoBehaviour
     [SerializeField] characterController characterController;
 
     [SerializeField] bool isCreatable = true;
+
+    [SerializeField] GameObject animUFo;
+    private Animator anim;
     private float moveSpeed;
     void Start()
     {
+        anim = animUFo.GetComponent<Animator>();
+
         moveSpeed = characterController.moveSpeed;
         InvokeRepeating("createLetter",0f,5f);
         InvokeRepeating("stopInstantiate",10f,10f);
@@ -74,6 +79,7 @@ public class ufoController : MonoBehaviour
         int i = Random.RandomRange(0,2);
         if (i == 0)
         {
+            anim.SetBool("ArkayaDon",true);
             isCreatable = false;
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,6 +8,8 @@ public class characterController : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
+
+    [SerializeField] GameObject collectEffect;
 
     private Vector2 touchStartPos;
     private float minSwipeDistance = 50f;
@@ -83,6 +86,9 @@ public class characterController : MonoBehaviour
         if (other.tag == "targetLetter")
         {
             Debug.Log("Correct");
+            GameObject instantiatedLetter = Instantiate(collectEffect);
+            instantiatedLetter.transform.position =other.transform.position;
+            Destroy(other.gameObject);
         }
         else
         {
