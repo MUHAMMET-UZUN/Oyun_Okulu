@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1316345284}
     m_Modifications:
+    - target: {fileID: 2109593431783209415, guid: da0d8f93456488640a313194d9334732, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5745025970864432660, guid: 089ba3ad6ddf101478ede950188788ab, type: 3}
     - target: {fileID: 2423714183176531160, guid: da0d8f93456488640a313194d9334732, type: 3}
       propertyPath: m_Name
       value: Drone
@@ -332,7 +336,7 @@ MonoBehaviour:
   characterController: {fileID: 1664598788}
   isCreatable: 1
   animUFo: {fileID: 1154393463}
-  zOffset: 20
+  zOffset: 30
 --- !u!4 &1316345284
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +438,10 @@ PrefabInstance:
     - target: {fileID: 5525126159602277255, guid: b17652e026e1efd4987fa044ce544836, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 34.412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525126159602277257, guid: b17652e026e1efd4987fa044ce544836, type: 3}
+      propertyPath: field of view
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 5525126160395874310, guid: b17652e026e1efd4987fa044ce544836, type: 3}
       propertyPath: m_Constraints
