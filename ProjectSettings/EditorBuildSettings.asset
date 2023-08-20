@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UMAMI-MainMenu.unity
+    guid: 0311f3db5bcb0074db1c388bca1e2c03
+  - enabled: 1
+    path: Assets/Scenes/a.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/UMAMI.unity
+    guid: e482d6600ca80e147b0fbbfb8cfa70cc
   m_configObjects: {}
